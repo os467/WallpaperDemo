@@ -1,5 +1,7 @@
 package com.os467.dev.wallpaper;
 
+import com.os467.dev.wallpaper.config.DefaultEngineConfig;
+import com.os467.dev.wallpaper.config.EngineConfig;
 import com.os467.dev.wallpaper.core.DefaultWallpaperHandler;
 import com.os467.dev.wallpaper.core.DefaultWallpaperVisualizer;
 import com.os467.dev.wallpaper.core.WallpaperHandler;
@@ -12,15 +14,28 @@ import com.os467.dev.wallpaper.entity.AnimatedWallpaper;
  */
 public class WallpaperEngine {
     private WallpaperHandler wallpaperHandler;
+
+    private EngineConfig engineConfig;
+
+    public WallpaperEngine(WallpaperHandler wallpaperHandler, EngineConfig engineConfig) {
+        this.wallpaperHandler = wallpaperHandler;
+        this.engineConfig = engineConfig;
+    }
+
+    public WallpaperEngine(EngineConfig engineConfig) {
+        this.wallpaperHandler = new DefaultWallpaperHandler(
+                new DefaultWallpaperVisualizer(
+                        new DefaultProcessExecutor(),
+                        new DefaultWallpaperProcess()
+                )
+        );
+        this.engineConfig = engineConfig;
+    }
+
     public void init(){
         //启动前通知
         //执行器
-
-        wallpaperHandler = new DefaultWallpaperHandler(new DefaultWallpaperVisualizer(
-                new DefaultProcessExecutor(),
-                new DefaultWallpaperProcess())
-        );
-        wallpaperHandler.handle(new AnimatedWallpaper("C:\\Users\\tly20\\Desktop\\Shelter.mp4"));
+        wallpaperHandler.handle(new AnimatedWallpaper(engineConfig.getFile(),engineConfig.getAudio()));
         //启动后通知
     }
 }

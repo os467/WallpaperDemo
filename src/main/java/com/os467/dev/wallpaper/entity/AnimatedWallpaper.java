@@ -7,8 +7,11 @@ public class AnimatedWallpaper implements Wallpaper {
 
     private String filePath;
 
-    public AnimatedWallpaper(String filePath) {
+    private Boolean audio;
+
+    public AnimatedWallpaper(String filePath, Boolean audio) {
         this.filePath = filePath;
+        this.audio = audio;
     }
 
     @Override
@@ -21,4 +24,7 @@ public class AnimatedWallpaper implements Wallpaper {
         return filePath;
     }
 
+    public Boolean getAudio() {
+        return audio;
+    }
 }

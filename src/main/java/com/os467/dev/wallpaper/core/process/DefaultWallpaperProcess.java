@@ -2,6 +2,7 @@ package com.os467.dev.wallpaper.core.process;
 
 import com.os467.dev.jna.User32;
 import com.os467.dev.wallpaper.EngineConstant;
+import com.os467.dev.wallpaper.entity.AnimatedWallpaper;
 import com.os467.dev.wallpaper.entity.Wallpaper;
 import com.os467.dev.wallpaper.exception.WallpaperProcessException;
 import com.os467.test.util.FfmpegUtils;
@@ -77,6 +78,11 @@ public class DefaultWallpaperProcess implements WallpaperProcess {
      * @param uuid 壁纸进程窗口名称
      */
     private Process createMediaProcess(String uuid) {
+        Boolean audio = true;
+        if (wallpaper instanceof AnimatedWallpaper){
+            AnimatedWallpaper wallpaper = (AnimatedWallpaper) this.wallpaper;
+            audio = wallpaper.getAudio();
+        }
         return FfmpegUtils.playVideoAudio(
                 wallpaper.path(),
                 windowWith,
@@ -84,7 +90,7 @@ public class DefaultWallpaperProcess implements WallpaperProcess {
                 EngineConstant.LOOP_CYCLE,
                 uuid,
                 false,
-                true);
+                audio);
     }
 
     /**
