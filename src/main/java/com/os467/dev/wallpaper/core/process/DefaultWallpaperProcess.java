@@ -1,11 +1,11 @@
 package com.os467.dev.wallpaper.core.process;
 
 import com.os467.dev.jna.User32;
+import com.os467.dev.util.FfmpegUtils;
 import com.os467.dev.wallpaper.EngineConstant;
 import com.os467.dev.wallpaper.entity.AnimatedWallpaper;
 import com.os467.dev.wallpaper.entity.Wallpaper;
 import com.os467.dev.wallpaper.exception.WallpaperProcessException;
-import com.os467.test.util.FfmpegUtils;
 import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinUser;
 

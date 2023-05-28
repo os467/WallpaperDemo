@@ -185,6 +185,41 @@ public class FfmpegUtils {
     }
 
     /**
+     * 播放音频和视频并指定宽、高、循环次数、窗口名称、边框、音频
+     * @param resourcesPath 视频文件路径
+     * @param weight 窗口宽度
+     * @param height 窗口高度
+     * @param loop 循环次数
+     * @param windowName 窗口名称
+     * @param border 是否开启边框
+     * @param audio 是否播放音频
+     * @return
+     */
+    public static Process playVideoAudio(String resourcesPath, int weight, int height, int loop,String windowName,boolean border,boolean audio) {
+        List<String> command = new ArrayList<>();
+        command.add(ffplay);
+        if (!audio){
+            command.add("-an");
+        }
+        if (!border){
+            command.add("-noborder");
+        }
+        command.add("-window_title");
+        String fileName = windowName;
+        command.add(fileName);
+        command.add(resourcesPath);
+        command.add("-x");
+        command.add(String.valueOf(weight));
+        command.add("-y");
+        command.add(String.valueOf(height));
+        command.add("-loop");
+        command.add(String.valueOf(loop));
+        //播放完后自动退出
+        //command.add("-autoexit");
+        return commandStart(command);
+    }
+
+    /**
      * 调用命令行执行
      *
      * @param command 命令行参数
