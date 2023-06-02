@@ -2,6 +2,10 @@ package com.os467.dev.wallpaper;
 
 public class EngineConstant {
 
+    public static final String WIN10_WORK_W_WINDOW_CLASSNAME = "WorkerW";
+
+    public static final String WIN10_DESKTOP_ICON_WINDOW_NAME = "SHELLDLL_DefView";
+
     public static final String WIN10_PM_WINDOW_CLASSNAME = "Progman";
 
     public static final String WIN10_PM_WINDOW_NAME = "Program Manager";

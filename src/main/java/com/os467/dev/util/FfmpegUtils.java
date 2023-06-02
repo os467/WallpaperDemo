@@ -237,12 +237,13 @@ public class FfmpegUtils {
         Process process = null;
         try {
             process = builder.start();
-            /*//如果你想获取到执行完后的信息，那么下面的代码也是需要的
-            String line = "";
-            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }*/
+            builder.redirectInput();
+            builder.redirectOutput();
+            InputStream inputStream = process.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            while (bufferedReader.read() != -1){
+                //clear buffer
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

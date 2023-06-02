@@ -8,7 +8,7 @@ public interface ProcessExecutor {
     /**
      * 进程具体执行方法，生成进程并返回
      * @return 返回被执行的进程
-     * @param wallpaperProcess 壁纸进程
+     * @param wallpaperProcessBuilder 壁纸进程
      */
-    Process execute(WallpaperProcess wallpaperProcess);
+    Process execute(WallpaperProcessBuilder wallpaperProcessBuilder);
 }
