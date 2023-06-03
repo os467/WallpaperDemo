@@ -1,6 +1,5 @@
 package com.os467;
 
-import com.os467.dev.wallpaper.config.EngineConfig;
 import com.os467.dev.wallpaper.exception.ConfigInitException;
 
 import java.io.*;
@@ -84,7 +83,6 @@ public class YamlReader implements EngineConfig {
         }finally {
             rootEvent = null;
         }
-        System.out.println(rootMap);
     }
 
 

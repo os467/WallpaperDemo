@@ -7,17 +7,6 @@ import java.util.BitSet;
 
 public class EncodeUtils {
 
-    public static void main(String[] args) {
-        String savedFileName = "D:\\pythonschool\\PY_lab\\LocalGitHub\\WallpaperEngine\\resources\\config\\wallpaper.yml";
-       //检测文件格式，如果不是UTF-8，将其转为UTF-8格式
-        String encodeType = null;
-        try {
-            encodeType = EncodeUtils.getEncode(savedFileName, true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     private static int BYTE_SIZE = 8;
     public static String CODE_UTF8 = "UTF-8";
     public static String CODE_UTF8_BOM = "UTF-8_BOM";

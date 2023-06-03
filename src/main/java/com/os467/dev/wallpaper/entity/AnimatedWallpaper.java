@@ -1,5 +1,6 @@
 package com.os467.dev.wallpaper.entity;
 
+
 import com.os467.dev.wallpaper.config.AnimateEngineConfig;
 import com.os467.dev.wallpaper.config.EngineConfig;
 

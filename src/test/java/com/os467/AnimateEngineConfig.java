@@ -1,8 +1,5 @@
 package com.os467;
 
-import com.os467.dev.wallpaper.annotation.YamlConfigValue;
-import com.os467.dev.wallpaper.config.EngineConfig;
-
 public class AnimateEngineConfig implements EngineConfig {
 
     @YamlConfigValue("enable")
@@ -38,5 +35,14 @@ public class AnimateEngineConfig implements EngineConfig {
     @Override
     public void init() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "AnimateEngineConfig{" +
+                "enable=" + enable +
+                ", mediaFilePath='" + mediaFilePath + '\'' +
+                ", audio=" + audio +
+                '}';
     }
 }

@@ -82,6 +82,19 @@ public class YamlConfigEvent {
     }
 
     /**
+     * 获取配置项
+     * @param eventName
+     * @return
+     */
+    public YamlConfigEvent getChildEvent(String eventName) {
+        YamlConfigEvent yamlConfigEvent = children.get(eventName);
+        if (yamlConfigEvent == null){
+            throw new YamlConfigEventNotFoundException("没有此配置: "+ getPath() + eventName);
+        }
+        return yamlConfigEvent;
+    }
+
+    /**
      * 获取值
      * @param eventName
      * @return
